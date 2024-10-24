@@ -11,4 +11,3 @@
 - **Databases:** PostgreSQL, MongoDB, MySQL
 - **DevOps:** Docker, AWS, CI/CD pipelines
 - **Testing:** Jest, Mocha, Cypress, Playwright
-# rbrightline
