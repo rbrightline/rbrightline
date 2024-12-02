@@ -1,0 +1,17 @@
+import { Injectable } from '@angular/core';
+import {
+  EntityCollectionServiceBase,
+  EntityCollectionServiceElementsFactory,
+} from '@ngrx/data';
+
+export type SampleModel = {
+  id: number;
+  name: string;
+};
+
+@Injectable()
+export class SampleService extends EntityCollectionServiceBase<SampleModel> {
+  constructor(factory: EntityCollectionServiceElementsFactory) {
+    super('Sample', factory);
+  }
+}
