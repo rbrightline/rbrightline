@@ -86,6 +86,9 @@ importers:
       '@ngrx/store':
         specifier: ^18.1.1
         version: 18.1.1(@angular/core@18.2.13(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1)
+      '@rline/type':
+        specifier: ^2.12.1
+        version: 2.12.1
       axios:
         specifier: ^1.6.0
         version: 1.7.8
@@ -2892,6 +2895,9 @@ packages:
 
   '@rline/gen@2.12.7':
     resolution: {integrity: sha512-yuA1VrqHLkaUUkZhnJNwoDhNQmt/Bzl6IBMn5iVu50dqPKrqZpp+swDqhjb25FtOTiMQtHpSVY6GiPVjGgrydA==}
+
+  '@rline/type@2.12.1':
+    resolution: {integrity: sha512-0eJlKBaPTJXlPAdzNMKDW6QJi89JfLpspD2iB7Y8b9ZT5gJnM6y5LQdHXxRjQBgxJp2actwW1FsdH1iJ1xpS0w==}
 
   '@rollup/plugin-json@6.1.0':
     resolution: {integrity: sha512-EGI2te5ENk1coGeADSIwZ7G2Q8CJS2sF120T7jLw4xFw9n7wIOXHo+kIYRAoVpJAN+kmqZSoO3Fp4JtoNF4ReA==}
@@ -14022,6 +14028,10 @@ snapshots:
       - stylus
       - sugarss
       - terser
+
+  '@rline/type@2.12.1':
+    dependencies:
+      '@swc/helpers': 0.5.15
 
   '@rollup/plugin-json@6.1.0(rollup@4.28.0)':
     dependencies:

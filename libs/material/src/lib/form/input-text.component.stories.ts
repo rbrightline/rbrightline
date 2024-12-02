@@ -5,25 +5,19 @@ import {
 } from '@storybook/angular';
 import { InputTextComponent } from './input-text.component';
 import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { importProvidersFrom } from '@angular/core';
+import { InputCommonModule } from './input-common.module';
+
 const meta: Meta<InputTextComponent> = {
   component: InputTextComponent,
   title: 'Input/InputTextComponent',
 
   decorators: [
     applicationConfig({
-      providers: [
-        provideAnimations(),
-        {
-          provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
-          useValue: {
-            appearance: 'outline',
-          },
-        },
-      ],
+      providers: [importProvidersFrom(InputCommonModule), provideAnimations()],
     }),
   ],
 };
@@ -34,8 +28,6 @@ export const Primary: Story = {
   args: {
     name: 'firstName',
     label: 'First Name',
-    prefixIcon: 'info',
-    suffixIcon: 'settings',
   },
 };
 

@@ -2,12 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { SampleService } from './sample.service';
+import { InputCommonModule } from '@rline/material';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, MatIconModule],
+  imports: [RouterModule, MatIconModule, InputCommonModule],
   selector: 'rl-root',
-  template: `<router-outlet></router-outlet>`,
+  template: `
+    <form>
+      <mat-form-field>
+        <mat-label>Input Label </mat-label>
+        <input type="text" matInput />
+      </mat-form-field>
+      <router-outlet></router-outlet>
+    </form>
+  `,
   providers: [SampleService],
 })
 export class AppComponent implements OnInit {

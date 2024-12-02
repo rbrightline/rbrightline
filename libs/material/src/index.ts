@@ -7,6 +7,7 @@ export * from './lib/form/chip-list.component';
 export * from './lib/form/chip-select.component';
 export * from './lib/form/form.component';
 export * from './lib/form/input-base.component';
+export * from './lib/form/input-common.module';
 export * from './lib/form/input-date.component';
 export * from './lib/form/input-number.component';
 export * from './lib/form/input-text.component';

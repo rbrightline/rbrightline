@@ -1,5 +1,6 @@
-import { Component, input, model, OnInit } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { InputCommonModule } from './input-common.module';
+import { InputComponent } from './input.component';
 
 export type InputStatus = 'valid' | 'invalid' | undefined;
 
@@ -8,38 +9,72 @@ export type InputStatus = 'valid' | 'invalid' | undefined;
   standalone: true,
   imports: [InputCommonModule],
   template: `
-    <mat-form-field class="w-full">
-      <mat-label>{{ label() || name() }}</mat-label>
+    <mat-form-field [formGroup]="formGroup()">
+      <!--  -->
+      @if(prefixText()){ <span matTextPrefix> {{ prefixText() }} </span>}
 
-      <input type="text" matInput />
+      <!--  -->
+      @if(suffixText()){ <span matTextSuffix> {{ suffixText() }} </span>}
+
+      <!--  -->
+      @if(prefixIcon()) {
+      <mat-icon matIconPrefix> {{ prefixIcon() }} </mat-icon>}
+
+      <!--  -->
+      @if(suffixIcon()) {
+      <mat-icon matIconSuffix> {{ suffixIcon() }} </mat-icon>}
+
+      <!--  -->
+
+      <mat-label>
+        {{ label() }}
+        <span>
+          ( {{ minLength() }}/{{ value()?.length || 0 }}/{{
+            maxLength()
+          }}
+          )</span
+        >
+      </mat-label>
+
+      <input
+        type="text"
+        matInput
+        [formControl]="formControl"
+        [(ngModel)]="value"
+        [name]="name()"
+        [required]="required()"
+        [minLength]="minLength()"
+        [maxLength]="maxLength()"
+        autocomplete="off"
+      />
+
+      @if(hint()){ <mat-hint>{{ hint() }}</mat-hint>
+      }
+      <mat-error>{{ error() }}</mat-error>
     </mat-form-field>
   `,
 })
-export class InputTextComponent implements OnInit {
-  name = input.required<string>();
-  label = input<string>();
-
-  prefixIcon = input<string>('info');
-  suffixIcon = input<string>('info');
-
-  prefixText = input<string>('...');
-  suffixText = input<string>('...');
-
-  hint = input<string>('...');
-
-  // Value
-  value = model<string>('');
-
-  // Validation
-  valid = model<boolean | undefined>(undefined);
-  invalid = model<boolean | undefined>(undefined);
-  errorMessage = input<string>();
-
-  required = input<boolean>(true);
+export class InputTextComponent extends InputComponent {
   minLength = input<number>(0);
-  maxLength = input<number>(100);
+  maxLength = input<number>(1000);
 
-  ngOnInit(): void {
-    this.value.subscribe((value) => console.log('Input Value: ' + value));
+  override error() {
+    const errors = this.formControl.errors as any;
+    const name = this.name();
+
+    if (errors) {
+      if (errors.required) {
+        return `${name} is requried!`;
+      } else if (errors.minlength) {
+        return `${name} should be longer than or equal to ${this.minLength()} characters!`;
+      } else if (errors.maxlength) {
+        return `${name} should be shorter than or equal to ${this.maxLength()} characters!`;
+      } else if (errors.email) {
+        return `${name} should be an email!`;
+      }
+      return `Invalid input`;
+    }
+
+    return undefined;
   }
 }

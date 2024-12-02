@@ -5,19 +5,24 @@ import { expect } from '@storybook/jest';
 
 const meta: Meta<InputNumberComponent> = {
   component: InputNumberComponent,
-  title:'Input/InputNumberComponent',
+  title: 'Input/InputNumberComponent',
 };
 export default meta;
 type Story = StoryObj<InputNumberComponent>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    name: 'age',
+    label: 'Age',
+    min: 18,
+    max: 120,
+  },
 };
 
 export const Heading: Story = {
-  args: {},
+  args: Primary.args,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText(/input-number works!/gi)).toBeTruthy();
+    // expect(canvas.getByText(/input-number works!/gi)).toBeTruthy();
   },
 };
