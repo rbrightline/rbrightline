@@ -28,17 +28,9 @@
   src: url(outline.ttf) format('truetype');
 }
 
-/* fallback */
-@font-face {
-  font-family: 'Comfortaa';
-  font-style: normal;
-  font-weight: 400;
-  src: url(comfortaa.ttf) format('truetype');
-}
-
 /* cyrillic-ext */
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   font-style: normal;
   font-display: swap;
   src: url(roboto-flex.ttf) format('truetype');
@@ -47,7 +39,7 @@
 }
 
 @font-face {
-  font-family: 'Comfortaa';
+  font-family: Comfortaa;
   src: url(comfortaa.ttf) format('truetype');
   unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F,
     U+FE2E-FE2F;
