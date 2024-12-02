@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'rl-material',
+  selector: 'rl-checkbox',
   standalone: true,
   imports: [CommonModule],
-  template: `<p>material works!</p>`,
+  template: `<p>checkbox works!</p>`,
   styles: ``,
 })
-export class MaterialComponent {}
+export class CheckboxComponent {}

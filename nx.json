@@ -119,7 +119,16 @@
       "inlineTemplate": true,
       "inlineStyle": true,
       "standalone": true,
-      "prefix": "rl"
+      "prefix": "rl",
+      "skipTests": true
+    },
+    "@nx/angular:director": {
+      "standalone": true,
+      "prefix": "rl",
+      "skipTests": true
+    },
+    "@nx/angular:module": {
+      "skipTests": true
     }
   }
 }
