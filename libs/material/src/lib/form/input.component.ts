@@ -6,7 +6,7 @@ import { FormControl, FormGroup } from '@angular/forms';
   standalone: true,
   template: '',
 })
-export class InputComponent {
+export class InputComponent<T = string> {
   submitted = model<boolean>(false);
 
   name = input.required<string>();
@@ -18,11 +18,11 @@ export class InputComponent {
   hint = input<string>('');
 
   // Value
-  value = model<string | null>(null);
+  value = model<T | null>(null);
 
   formGroup = input<FormGroup>(new FormGroup({}));
 
-  formControl = new FormControl('', []);
+  formControl = new FormControl<T | null>(null, []);
 
   errorMessage = input<string>('Input is invalid');
 

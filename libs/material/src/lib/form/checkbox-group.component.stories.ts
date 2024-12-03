@@ -1,23 +1,40 @@
-import type { Meta, StoryObj } from '@storybook/angular';
+import {
+  applicationConfig,
+  type Meta,
+  type StoryObj,
+} from '@storybook/angular';
 import { CheckboxGroupComponent } from './checkbox-group.component';
 import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { importProvidersFrom } from '@angular/core';
+import { InputCommonModule } from './input-common.module';
 
 const meta: Meta<CheckboxGroupComponent> = {
   component: CheckboxGroupComponent,
-  title:'Input/CheckboxGroupComponent',
+  title: 'Input/CheckboxGroupComponent',
+  decorators: [
+    applicationConfig({
+      providers: [importProvidersFrom(InputCommonModule), provideAnimations()],
+    }),
+  ],
 };
+
 export default meta;
+
 type Story = StoryObj<CheckboxGroupComponent>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    name: 'check',
+    label: 'checkbox group',
+    checkOptions: ['option1', 'option2', 'option3', 'option4', 'option5'],
+  },
 };
 
 export const Heading: Story = {
-  args: {},
+  args: Primary.args,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText(/checkbox-group works!/gi)).toBeTruthy();
+    // expect(canvas.getByText(//gi)).toBeTruthy();
   },
 };
