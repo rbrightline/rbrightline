@@ -30,12 +30,15 @@ import { startWith, map, Observable } from 'rxjs';
       <input
         type="text"
         matInput
+        [name]="name()"
+        [(ngModel)]="value"
         [placeholder]="label()"
         [formControl]="formControl"
         [matAutocomplete]="auto"
         [required]="required()"
         autocomplete="off"
       />
+
       <!--  -->
       @if(hint()){
       <mat-hint>{{ hint() }}</mat-hint>
