@@ -1,23 +1,44 @@
-import type { Meta, StoryObj } from '@storybook/angular';
+import {
+  applicationConfig,
+  type Meta,
+  type StoryObj,
+} from '@storybook/angular';
 import { AutocompleteComponent } from './autocomplete.component';
 import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { importProvidersFrom } from '@angular/core';
+import { InputCommonModule } from './input-common.module';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 const meta: Meta<AutocompleteComponent> = {
   component: AutocompleteComponent,
-  title:'Input/AutocompleteComponent',
+  title: 'Input/AutocompleteComponent',
+  decorators: [
+    applicationConfig({
+      providers: [
+        importProvidersFrom([InputCommonModule, MatAutocompleteModule]),
+        provideAnimations(),
+      ],
+    }),
+  ],
 };
+
 export default meta;
+
 type Story = StoryObj<AutocompleteComponent>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    name: 'firstName',
+    label: 'First name',
+    options: ['first', 'second', 'third', 'forth'],
+  },
 };
 
 export const Heading: Story = {
-  args: {},
+  args: Primary.args,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText(/autocomplete works!/gi)).toBeTruthy();
+    expect(canvas.getByText(/First Name/gi)).toBeTruthy();
   },
 };

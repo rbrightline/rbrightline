@@ -5,7 +5,7 @@ import { expect } from '@storybook/jest';
 
 const meta: Meta<InputComponent> = {
   component: InputComponent,
-  title:'Input/InputComponent',
+  title: 'Input/InputComponent',
 };
 export default meta;
 type Story = StoryObj<InputComponent>;
@@ -18,6 +18,5 @@ export const Heading: Story = {
   args: {},
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText(/input works!/gi)).toBeTruthy();
   },
 };

@@ -25,10 +25,10 @@ export class InputComponent {
   formControl = new FormControl('', []);
 
   errorMessage = input<string>('Input is invalid');
-  
+
   required = input<boolean>(true);
 
-  error() {
+  error(): string | undefined | null {
     throw new Error('Not implemented!');
   }
 }
