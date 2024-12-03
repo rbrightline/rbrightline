@@ -6,6 +6,5 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `<p>switch works!</p>`,
-  styles: ``,
 })
 export class SwitchComponent {}
