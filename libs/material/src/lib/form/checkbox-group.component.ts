@@ -19,7 +19,6 @@ import { CheckboxComponent } from './checkbox.component';
       </rl-checkbox>
       }
     </section>
-    {{ value() | json }} {{ formControl.value | json }}
   `,
 })
 export class CheckboxGroupComponent extends InputComponent<

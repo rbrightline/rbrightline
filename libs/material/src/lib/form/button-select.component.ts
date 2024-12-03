@@ -7,12 +7,12 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
   standalone: true,
   imports: [InputCommonModule, MatButtonToggleModule],
   template: `
-    {{ formControl.value }}/ {{ value() }}
     <mat-button-toggle-group
       [name]="name()"
       [multiple]="multiple()"
       [formControl]="formControl"
       [(ngModel)]="value"
+      class="w-full"
     >
       @for( option of options(); track option){
       <mat-button-toggle [value]="option">{{ option }}</mat-button-toggle>

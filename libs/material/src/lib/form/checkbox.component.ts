@@ -12,11 +12,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
       class="example-margin"
       [(ngModel)]="value"
       [formControl]="formControl"
+      class="w-full"
     >
       {{ label() }}
     </mat-checkbox>
-
-    {{ value() }}
   `,
 })
 export class CheckboxComponent extends InputComponent<boolean> {

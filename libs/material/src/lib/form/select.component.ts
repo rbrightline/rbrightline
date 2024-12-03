@@ -9,7 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
   imports: [InputCommonModule, MatSelectModule],
   template: `
     <!--  -->
-    <mat-form-field>
+    <mat-form-field class="w-full">
       <!--  -->
       @if(prefixText()){ <span matTextPrefix> {{ prefixText() }} </span>}
 

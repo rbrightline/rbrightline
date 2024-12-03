@@ -9,7 +9,7 @@ import { startWith, map, Observable } from 'rxjs';
   standalone: true,
   imports: [InputCommonModule, MatAutocompleteModule],
   template: `
-    <mat-form-field [formGroup]="formGroup()" class="example-full-width">
+    <mat-form-field [formGroup]="formGroup()" class="w-full">
       <!--  -->
       @if(prefixText()){ <span matTextPrefix> {{ prefixText() }} </span>}
 
