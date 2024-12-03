@@ -1,23 +1,42 @@
-import type { Meta, StoryObj } from '@storybook/angular';
+import {
+  applicationConfig,
+  type Meta,
+  type StoryObj,
+} from '@storybook/angular';
 import { RangeComponent } from './range.component';
 import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { importProvidersFrom } from '@angular/core';
+import { InputCommonModule } from './input-common.module';
 
 const meta: Meta<RangeComponent> = {
   component: RangeComponent,
-  title:'Input/RangeComponent',
+  title: 'Input/RangeComponent',
+  decorators: [
+    applicationConfig({
+      providers: [importProvidersFrom(InputCommonModule), provideAnimations()],
+    }),
+  ],
 };
+
 export default meta;
+
 type Story = StoryObj<RangeComponent>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    name: 'number',
+    label: 'Some number',
+    min: 0,
+    max: 100,
+    step: 5,
+  },
 };
 
 export const Heading: Story = {
-  args: {},
+  args: Primary.args,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText(/range works!/gi)).toBeTruthy();
+    expect(canvas.getByText(/Some number/gi)).toBeTruthy();
   },
 };
