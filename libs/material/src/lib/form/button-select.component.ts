@@ -3,7 +3,7 @@ import { InputCommonModule } from './input-common.module';
 import { InputComponent } from './input.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 @Component({
-  selector: 'rl-input-text',
+  selector: 'rl-button-select',
   standalone: true,
   imports: [InputCommonModule, MatButtonToggleModule],
   template: `

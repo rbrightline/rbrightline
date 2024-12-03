@@ -1,11 +1,26 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { InputCommonModule } from './input-common.module';
+import { InputComponent } from './input.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'rl-checkbox',
   standalone: true,
-  imports: [CommonModule],
-  template: `<p>checkbox works!</p>`,
-  styles: ``,
+  imports: [InputCommonModule, MatCheckboxModule],
+  template: `
+    <mat-checkbox
+      class="example-margin"
+      [(ngModel)]="value"
+      [formControl]="formControl"
+    >
+      {{ label() }}
+    </mat-checkbox>
+
+    {{ value() }}
+  `,
 })
-export class CheckboxComponent {}
+export class CheckboxComponent extends InputComponent<boolean> {
+  override error() {
+    return undefined;
+  }
+}
