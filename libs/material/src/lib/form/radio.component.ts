@@ -1,11 +1,27 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
+import { Component, input } from '@angular/core';
+import { InputCommonModule } from './input-common.module';
+import { InputComponent } from './input.component';
+import { MatRadioModule } from '@angular/material/radio';
 @Component({
-  selector: 'rl-radio',
+  selector: 'rl-input-text',
   standalone: true,
-  imports: [CommonModule],
-  template: `<p>radio works!</p>`,
-  styles: ``,
+  imports: [InputCommonModule, MatRadioModule],
+  template: `
+    <mat-radio-group
+      [(ngModel)]="value"
+      [formControl]="formControl"
+      [required]="required()"
+    >
+      @for (option of options(); track $index) {
+      <mat-radio-button [value]="option">{{ option }}</mat-radio-button>
+      }
+    </mat-radio-group>
+  `,
 })
-export class RadioComponent {}
+export class RadioComponent extends InputComponent {
+  options = input.required<string[]>();
+
+  override error() {
+    return undefined;
+  }
+}

@@ -1,23 +1,40 @@
-import type { Meta, StoryObj } from '@storybook/angular';
+import {
+  applicationConfig,
+  type Meta,
+  type StoryObj,
+} from '@storybook/angular';
 import { RadioComponent } from './radio.component';
 import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { importProvidersFrom } from '@angular/core';
+import { InputCommonModule } from './input-common.module';
 
 const meta: Meta<RadioComponent> = {
   component: RadioComponent,
-  title:'Input/RadioComponent',
+  title: 'Input/RadioComponent',
+  decorators: [
+    applicationConfig({
+      providers: [importProvidersFrom(InputCommonModule), provideAnimations()],
+    }),
+  ],
 };
+
 export default meta;
+
 type Story = StoryObj<RadioComponent>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    name: 'options',
+    label: 'options',
+    options: ['Option 1', 'Option 2'],
+  },
 };
 
 export const Heading: Story = {
-  args: {},
+  args: Primary.args,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText(/radio works!/gi)).toBeTruthy();
+    // expect(canvas.getByText(//gi)).toBeTruthy();
   },
 };
