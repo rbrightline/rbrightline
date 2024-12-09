@@ -7,7 +7,7 @@ import { InputComponent } from './input.component';
   standalone: true,
   imports: [InputCommonModule],
   template: `
-    <mat-form-field [formGroup]="formGroup()">
+    <mat-form-field [formGroup]="formGroupInstance()">
       <!--  -->
       @if(prefixText()){ <span matTextPrefix> {{ prefixText() }} </span>}
 

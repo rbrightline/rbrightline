@@ -20,13 +20,13 @@ export class InputComponent<T = string> {
   // Value
   value = model<T | null>(null);
 
-  formGroup = input<FormGroup>(new FormGroup({}));
+  formGroupInstance = input<FormGroup>(new FormGroup({}));
 
   formControl = new FormControl<T | null>(null, []);
 
   errorMessage = input<string>('Input is invalid');
 
-  required = input<boolean>(true);
+  required = input<boolean>(false);
 
   error(): string | undefined | null {
     throw new Error('Not implemented!');

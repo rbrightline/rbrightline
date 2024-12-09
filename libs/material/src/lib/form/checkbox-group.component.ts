@@ -8,7 +8,11 @@ import { CheckboxComponent } from './checkbox.component';
   standalone: true,
   imports: [InputCommonModule, CheckboxComponent],
   template: `
-    <section [id]="name()" class="flex flex-col gap-2 w-full">
+    <section
+      [formGroup]="formGroupInstance()"
+      [id]="name()"
+      class="flex flex-col gap-2 w-full"
+    >
       <label [for]="name()">{{ label() }}</label>
       @for(option of checkOptions(); track option) {
       <rl-checkbox

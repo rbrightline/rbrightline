@@ -6,12 +6,12 @@ import { MatChipsModule } from '@angular/material/chips';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 
 @Component({
-  selector: 'rl-input-text',
+  selector: 'rl-chip-select',
   standalone: true,
   imports: [InputCommonModule, MatChipsModule, MatAutocompleteModule],
   template: `
     <!--  -->
-    <mat-form-field class="w-full">
+    <mat-form-field [formGroup]="formGroupInstance()" class="w-full">
       <!--  -->
       @if(prefixText()){ <span matTextPrefix> {{ prefixText() }} </span>}
 

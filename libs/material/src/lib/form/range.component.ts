@@ -3,11 +3,11 @@ import { InputCommonModule } from './input-common.module';
 import { InputComponent } from './input.component';
 import { MatSliderModule } from '@angular/material/slider';
 @Component({
-  selector: 'rl-input-text',
+  selector: 'rl-input-range',
   standalone: true,
   imports: [InputCommonModule, MatSliderModule],
   template: `
-    <section [formGroup]="formGroup()" class="pt-4 w-full">
+    <section [formGroup]="formGroupInstance()" class="pt-4 w-full">
       <mat-slider
         class="w-full"
         [max]="max"

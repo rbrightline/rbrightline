@@ -4,12 +4,12 @@ import { InputComponent } from './input.component';
 
 import { MatSelectModule } from '@angular/material/select';
 @Component({
-  selector: 'rl-input-text',
+  selector: 'rl-input-select',
   standalone: true,
   imports: [InputCommonModule, MatSelectModule],
   template: `
     <!--  -->
-    <mat-form-field class="w-full">
+    <mat-form-field [formGroup]="formGroupInstance()" class="w-full">
       <!--  -->
       @if(prefixText()){ <span matTextPrefix> {{ prefixText() }} </span>}
 

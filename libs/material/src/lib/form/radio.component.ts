@@ -3,11 +3,11 @@ import { InputCommonModule } from './input-common.module';
 import { InputComponent } from './input.component';
 import { MatRadioModule } from '@angular/material/radio';
 @Component({
-  selector: 'rl-input-text',
+  selector: 'rl-input-radio',
   standalone: true,
   imports: [InputCommonModule, MatRadioModule],
   template: `
-    <section [formGroup]="formGroup()">
+    <section [formGroup]="formGroupInstance()">
       <mat-radio-group
         [(ngModel)]="value"
         [formControl]="formControl"

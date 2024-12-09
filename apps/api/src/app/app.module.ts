@@ -6,10 +6,20 @@ import { join } from 'path';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { AppController } from './app.controller';
 import { JwtModule } from '@nestjs/jwt';
+import { CategoryModule } from '@rline/resource';
+import { TypeOrmModule } from '@rline/orm';
 
 @Module({
   imports: [
     ConfigModule.forRoot({}),
+    TypeOrmModule.forRoot({
+      type: 'better-sqlite3',
+      database: 'tmp/database/api.sqlite',
+      autoLoadEntities: true,
+      synchronize: true,
+      dropSchema: true,
+    }),
+    CategoryModule,
     JwtModule.registerAsync({
       global: true,
       imports: [ConfigModule.forFeature(() => ({}))],

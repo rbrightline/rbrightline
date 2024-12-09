@@ -9,7 +9,7 @@ export type InputStatus = 'valid' | 'invalid' | undefined;
   standalone: true,
   imports: [InputCommonModule],
   template: `
-    <mat-form-field [formGroup]="formGroup()">
+    <mat-form-field [formGroup]="formGroupInstance()">
       <!--  -->
       @if(prefixText()){ <span matTextPrefix> {{ prefixText() }} </span>}
 
@@ -39,8 +39,7 @@ export type InputStatus = 'valid' | 'invalid' | undefined;
       <input
         type="text"
         matInput
-        [formControl]="formControl"
-        [(ngModel)]="value"
+        [formControlName]="name()"
         [name]="name()"
         [required]="required()"
         [minLength]="minLength()"

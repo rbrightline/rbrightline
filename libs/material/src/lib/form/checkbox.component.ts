@@ -8,14 +8,16 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   standalone: true,
   imports: [InputCommonModule, MatCheckboxModule],
   template: `
-    <mat-checkbox
-      class="example-margin"
-      [(ngModel)]="value"
-      [formControl]="formControl"
-      class="w-full"
-    >
-      {{ label() }}
-    </mat-checkbox>
+    <div [formGroup]="formGroupInstance()">
+      <mat-checkbox
+        class="example-margin"
+        [(ngModel)]="value"
+        [formControl]="formControl"
+        class="w-full"
+      >
+        {{ label() }}
+      </mat-checkbox>
+    </div>
   `,
 })
 export class CheckboxComponent extends InputComponent<boolean> {
