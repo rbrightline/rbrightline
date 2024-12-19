@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  imports: [NxWelcomeComponent, RouterModule],
+  imports: [RouterModule, MatIconModule],
   selector: 'rl-root',
-  template: `<rl-nx-welcome></rl-nx-welcome> <router-outlet></router-outlet>`,
+  template: `
+    <mat-icon class="text-emerald-400">home</mat-icon>
+    <router-outlet></router-outlet>
+  `,
   styles: ``,
 })
 export class AppComponent {

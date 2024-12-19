@@ -1,0 +1,21 @@
+{
+    "name": "@rbrightline/desktop",
+    "version": "0.0.1",
+    "license": "Commercial-301",
+    "main": "desktop/main.js",
+    "devDependencies": {
+        "electron": "^33.3.0"
+    },
+    "author": {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+    },
+    "publishConfig": {
+        "access": "public",
+        "tag": "latest"
+    },
+    "scripts": {
+        "postinstall": "electron-builder install-app-deps && electron-builder install-app-deps && electron-builder install-app-deps"
+    }
+}
