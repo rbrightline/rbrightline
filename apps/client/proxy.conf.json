@@ -1,0 +1,14 @@
+{
+  "/api": {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
+  "/apps-desktop-desktop-api": {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
+  "/desktop-api": {
+    "target": "http://localhost:3000",
+    "secure": false
+  }
+}

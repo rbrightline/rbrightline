@@ -4,10 +4,10 @@ import { NxWelcomeComponent } from './nx-welcome.component';
 
 @Component({
   imports: [NxWelcomeComponent, RouterModule],
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  selector: 'rl-root',
+  template: `<rl-nx-welcome></rl-nx-welcome> <router-outlet></router-outlet>`,
+  styles: ``,
 })
 export class AppComponent {
-  title = 'rbrightline';
+  title = 'client';
 }
