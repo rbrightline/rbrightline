@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@rline/material": ["libs/material/src/index.ts"]
+      "@rline/cdk": ["libs/cdk/src/index.ts"],
+      "@rline/material": ["libs/material/src/index.ts"],
+      "@rline/ngrx": ["libs/ngrx/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
