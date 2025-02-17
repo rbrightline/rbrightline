@@ -11,6 +11,10 @@
         "outputPath": "dist/apps/rbrightline",
         "main": "apps/rbrightline/src/main.ts",
         "tsConfig": "apps/rbrightline/tsconfig.app.json",
+        "assets": [
+          "package.json",
+          "apps/rbrightline/src/assets"
+        ],
         "args": [
           "node-env=production"
         ]

@@ -7,16 +7,20 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
-    "skipLibCheck": true,
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    "skipLibCheck": false,
     "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@rline/entity": ["libs/entity/src/index.ts"]
-    }
+    "baseUrl": "."
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

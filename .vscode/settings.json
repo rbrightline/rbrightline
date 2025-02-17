@@ -1,0 +1,7 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.removeUnusedImports": "always",
+        "source.removeUnused.ts": "always",
+        "source.addMissingImports.ts": "always"
+    }
+}

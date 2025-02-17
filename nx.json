@@ -61,6 +61,14 @@
       "inputs": ["production", "^production"]
     }
   },
+  "generators": {
+    "@nx/js:library": {
+      "publishable": true,
+      "linter": "eslint",
+      "unitTestRunner": "vitest",
+      "bundler": "swc"
+    }
+  },
   "release": {
     "version": {
       "preVersionCommand": "pnpm dlx nx run-many -t build"
