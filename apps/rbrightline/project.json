@@ -6,9 +6,11 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "nx:run-commands",
+      "executor": "@nx/js:swc",
       "options": {
-        "command": "webpack-cli build",
+        "outputPath": "dist/apps/rbrightline",
+        "main": "apps/rbrightline/src/main.ts",
+        "tsConfig": "apps/rbrightline/tsconfig.app.json",
         "args": [
           "node-env=production"
         ]
